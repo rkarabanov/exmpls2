@@ -1,22 +1,43 @@
-
-console.log(amountTocoins (217,[25, 10, 5, 2, 1]));
-console.log(amountTocoins (137,[50,25, 10, 5, 2, 1]));
-
-
-function sort(array) {
-	return array.sort(function(a,b){return b-a});
-}
-function amountTocoins (num,array) {
-	array=sort(array);
-var arrayCoins=[];
-for (var i = 0; i < array.length; i++) {
-	if(array[i]<=num){
-		num-=array[i];
-		arrayCoins.push(array[i]);
-		i--;
+function isTypeOf(a) {
+	if((typeof a)=='undefined'){
+		return 'undefined';
 	}
-	
-}
-return arrayCoins;
+	else if (toString.call(a)=='[object Boolean]'){
+	return 'boolean';
+	}
+	else if(a==null){
+	return 'null';
+	}
+	else if(toString.call(a)=='[object Number]'){
+		return 'number';
+	}
+	else if(Object.prototype.toString.call(a) === '[object String]'){
+		return 'string';
+	}
+	else if(_.isFunction(a)){
+		return 'function';
+	}
+	else if(_.isArray(a)){
+		return 'array';
+	}
+	else if(_.isArrayLike(a)){
+		return 'array-like';
+	}
+	else if(_.isObject(a)){
+		return 'object';
+	}
+	else{
+		return "I don't know";
+	}
 }
 
+console.log(isTypeOf(undefined));
+console.log(isTypeOf(true));
+console.log(isTypeOf(null));
+console.log(isTypeOf(55));
+console.log(isTypeOf("Just do it"));
+console.log(isTypeOf(function () {
+}));
+console.log(isTypeOf([1,2,3]));
+console.log(isTypeOf(document.body.children));
+console.log(isTypeOf({}));
