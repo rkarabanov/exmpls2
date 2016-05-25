@@ -9,7 +9,7 @@ function Hamburger(size,stuffing) {
     this.startPrice();
     this.startCalory();
     this.toppings=[];
-    this.searchError(this.checkForErrorsHamburger(size,stuffing));
+    this.validate(this.checkForErrorsHamburger(size,stuffing));
     this.addSomethingOfHamburger(size);
     this.addSomethingOfHamburger(stuffing);
 };

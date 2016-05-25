@@ -7,6 +7,6 @@ Hamburger.prototype.addToppingOfHamburger= function (topping) {
 }
 
 Hamburger.prototype.addTopping = function(topping) {
- this.searchError(this.checkForErrorsTopping(topping));
+ this.validate(this.checkForErrorsTopping(topping));
     this.addToppingOfHamburger(topping);
 };

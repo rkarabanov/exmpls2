@@ -2,7 +2,7 @@ Hamburger.prototype.error= function (str) {
     throw new Error(str);
 }
 
-Hamburger.prototype.searchError=function (fn)
+Hamburger.prototype.validate=function (fn)
 {
     try{
         this.fn;
