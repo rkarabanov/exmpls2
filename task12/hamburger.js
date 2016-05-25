@@ -9,26 +9,17 @@ function Hamburger(size,stuffing) {
     this.startPrice();
     this.startCalory();
     this.toppings=[];
-    try{
-        this.fillHamburger(size,stuffing);
-    } catch(e){
-        if (e.name == "Error") {
-            alert( "Извините, в данных ошибка" );
-        } else {
-            throw e;
-        }
-    }
-}
+    this.searchError(this.checkForErrorsHamburger(size,stuffing));
+    this.addSomethingOfHamburger(size);
+    this.addSomethingOfHamburger(stuffing);
+};
 
-Hamburger.prototype.addSizeOfHamburger= function (size) {
-    this.tgr+=size[0];
-    this.calory+=size[1];
-}
 
-Hamburger.prototype.addStuffingOfHamburger= function (stuffing) {
-    this.tgr+=stuffing[0];
-    this.calory+=stuffing[1];
-}
+Hamburger.prototype.addSomethingOfHamburger= function (arr) {
+    this.tgr+=arr[0];
+    this.calory+=arr[1];
+};
+
 
 Hamburger.prototype.startCalory = function() {
     this.calory=this.calory||0;
@@ -45,3 +36,4 @@ Hamburger.prototype.getCalories = function() {
 Hamburger.prototype.getPrice = function() {
     return this.tgr;
 };
+
