@@ -1,12 +1,11 @@
-Hamburger.prototype.error = function (str) {
-    throw new Error(str);
+Hamburger.prototype.error = function (errorMessage) {
+    throw new Error(errorMessage);
 }
 
-Hamburger.prototype.validate = function (indeficator,...sep
-)
+Hamburger.prototype.validate = function (identifactor,...sep)
 {
     try {
-        indeficator === 'VALIDATE_TOPPING' ? this.checkForErrorsTopping(...sep)
+        identifactor === Hamburger.VALIDATE_TOPPING ? this.checkForErrorsTopping(...sep)
     :
         this.checkForErrorsHamburger(...sep);
     } catch (e) {
